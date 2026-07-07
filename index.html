@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="hero-panel" aria-label="Task overview">
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+            <p class="eyebrow">Daily Focus</p>
+            <h1>My Tasks</h1>
+            <p class="subtitle">Plan the day with a polished, distraction-free task board that remembers your list.</p>
+
+            <div class="stats-grid" aria-live="polite">
+                <article>
+                    <span id="totalTasks">0</span>
+                    <small>Total</small>
+                </article>
+                <article>
+                    <span id="activeTasks">0</span>
+                    <small>Active</small>
+                </article>
+                <article>
+                    <span id="doneTasks">0</span>
+                    <small>Done</small>
+                </article>
+            </div>
+        </section>
+
+        <section class="todo-card" aria-label="Todo list">
+            <form id="todoForm" class="task-form">
+                <label for="todoInput">Add a new task</label>
+                <div class="input-row">
+                    <input id="todoInput" type="text" placeholder="Design landing page concept..." autocomplete="off" maxlength="80" required>
+                    <button type="submit">Add</button>
+                </div>
+            </form>
+
+            <div class="toolbar" aria-label="Task filters">
+                <button class="filter-btn active" type="button" data-filter="all">All</button>
+                <button class="filter-btn" type="button" data-filter="active">Active</button>
+                <button class="filter-btn" type="button" data-filter="completed">Completed</button>
+                <button id="clearDone" class="clear-btn" type="button">Clear done</button>
+            </div>
+
+            <ul id="todoList" class="todo-list" aria-label="Tasks"></ul>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">+</div>
+                <h2>No tasks yet</h2>
+                <p>Add your first task and start building momentum.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

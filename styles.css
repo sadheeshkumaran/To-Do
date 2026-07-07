@@ -1,0 +1,433 @@
+:root {
+    --bg: #0b1020;
+    --card: rgba(255, 255, 255, 0.12);
+    --card-strong: rgba(255, 255, 255, 0.18);
+    --text: #f8fbff;
+    --muted: #aeb8d4;
+    --accent: #8ef6d3;
+    --accent-strong: #38dfac;
+    --pink: #ff7ab6;
+    --purple: #8f7cff;
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+    --radius: 28px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(143, 124, 255, 0.42), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(56, 223, 172, 0.28), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(255, 122, 182, 0.24), transparent 30%),
+        linear-gradient(135deg, #070a15 0%, var(--bg) 48%, #111832 100%);
+    display: grid;
+    place-items: center;
+    padding: 32px;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+.app-shell {
+    width: min(1120px, 100%);
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 28px;
+}
+
+.hero-panel,
+.todo-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(24px);
+}
+
+.hero-panel {
+    min-height: 620px;
+    border-radius: var(--radius);
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-panel::after {
+    content: "";
+    position: absolute;
+    inset: auto 32px 180px 32px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+}
+
+.orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(4px);
+    opacity: 0.8;
+}
+
+.orb-one {
+    width: 190px;
+    height: 190px;
+    right: -58px;
+    top: 70px;
+    background: radial-gradient(circle, var(--accent), transparent 68%);
+}
+
+.orb-two {
+    width: 230px;
+    height: 230px;
+    left: -96px;
+    bottom: 56px;
+    background: radial-gradient(circle, var(--pink), transparent 68%);
+}
+
+.eyebrow {
+    width: fit-content;
+    margin: 0 0 18px;
+    padding: 8px 14px;
+    border: 1px solid rgba(142, 246, 211, 0.32);
+    border-radius: 999px;
+    color: var(--accent);
+    background: rgba(142, 246, 211, 0.08);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h1 {
+    position: relative;
+    margin: 0;
+    font-size: clamp(3.4rem, 8vw, 6.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+    max-width: 560px;
+}
+
+.subtitle {
+    position: relative;
+    max-width: 420px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 1.04rem;
+    line-height: 1.7;
+}
+
+.stats-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.stats-grid article {
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.stats-grid span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.stats-grid small {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.todo-card {
+    border-radius: var(--radius);
+    padding: 28px;
+}
+
+.task-form {
+    padding: 24px;
+    border-radius: 24px;
+    background: rgba(7, 10, 21, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-form label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+}
+
+.input-row input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    outline: none;
+    border-radius: 18px;
+    padding: 16px 18px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.input-row input:focus {
+    border-color: rgba(142, 246, 211, 0.7);
+    box-shadow: 0 0 0 4px rgba(142, 246, 211, 0.12);
+}
+
+.input-row button {
+    border-radius: 18px;
+    padding: 0 24px;
+    color: #06120e;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    font-weight: 900;
+    box-shadow: 0 14px 34px rgba(56, 223, 172, 0.28);
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn,
+.clear-btn {
+    border-radius: 999px;
+    padding: 10px 15px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 800;
+}
+
+.filter-btn.active {
+    color: #07110e;
+    background: var(--accent);
+}
+
+.clear-btn {
+    margin-left: auto;
+}
+
+.todo-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.todo-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    animation: rise 220ms ease-out;
+}
+
+.todo-item.editing {
+    border-color: rgba(142, 246, 211, 0.45);
+    background: rgba(142, 246, 211, 0.09);
+}
+
+.todo-item.completed .task-title {
+    color: rgba(248, 251, 255, 0.48);
+    text-decoration: line-through;
+}
+
+.check-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: transparent;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.todo-item.completed .check-btn {
+    color: #07110e;
+    background: var(--accent);
+}
+
+.task-title {
+    overflow-wrap: anywhere;
+    font-weight: 700;
+}
+
+.edit-input {
+    min-width: 0;
+    width: 100%;
+    border: 1px solid rgba(142, 246, 211, 0.38);
+    outline: none;
+    border-radius: 14px;
+    padding: 11px 13px;
+    color: var(--text);
+    background: rgba(7, 10, 21, 0.48);
+}
+
+.edit-input:focus {
+    box-shadow: 0 0 0 4px rgba(142, 246, 211, 0.12);
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-btn,
+.save-btn,
+.cancel-btn,
+.delete-btn {
+    min-width: 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.edit-btn {
+    width: auto;
+    padding: 0 12px;
+    color: #07110e;
+    background: linear-gradient(135deg, #fff1a8, #ffca64);
+}
+
+.save-btn,
+.cancel-btn {
+    width: auto;
+    padding: 0 12px;
+}
+
+.save-btn {
+    color: #07110e;
+    background: var(--accent);
+}
+
+.cancel-btn {
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.delete-btn {
+    color: #ffd6e6;
+    background: rgba(255, 122, 182, 0.12);
+}
+
+.empty-state {
+    display: none;
+    margin-top: 46px;
+    padding: 36px 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.empty-state.show {
+    display: block;
+}
+
+.empty-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+    color: #07110e;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.empty-state h2 {
+    margin: 0 0 8px;
+    color: var(--text);
+}
+
+.empty-state p {
+    margin: 0;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 840px) {
+    body {
+        padding: 18px;
+    }
+
+    .app-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-panel {
+        min-height: auto;
+        gap: 88px;
+        padding: 32px;
+    }
+}
+
+@media (max-width: 520px) {
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .input-row button {
+        min-height: 52px;
+    }
+
+    .clear-btn {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .todo-item,
+    .todo-item.editing {
+        grid-template-columns: auto 1fr;
+    }
+
+    .task-actions {
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+    }
+}
